@@ -10,34 +10,40 @@
 
 <body>
     <div class="window">
-        <div class="textbox" id="website">example.com</div>
-        <div class="textbox" id="username">Username</div>
+        <div class="textbox">
+            <input type="string" value="example.com" id="website">
+        </div>
+        <div class="textbox">
+            <input type="string" value="Username" id="username">
+        </div>
         <div class="password-config">
             <label class="container">A-Z
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked="checked" id="LETTERS">
                 <span class="checkmark"></span>
             </label>
             <label class="container">a-z
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" id="letters">
                 <span class="checkmark"></span>
             </label>
             <label class="container">0-9
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" id="numbers">
                 <span class="checkmark"></span>
             </label>
             <label class="container">!@#
-                <input type="checkbox">
+                <input type="checkbox" checked="checked" id="symbols">
                 <span class="checkmark"></span>
             </label>
             <div class="password-length" id="password-length">
                 <span>Length:</span>
-                <input type="number" value="99">
+                <input type="number" value="20" id="passwordLength">
             </div>
         </div>
-        <div class="textbox" id="password">Password</div>
+        <div class="textbox">
+            <input type="string" value="Password" id="password">
+        </div>
         <div class="buttons">
-            <button class="button-generate" id="generate">Generate</button>
-            <button class="button-save" id="save">Save</button>
+            <button class="button-generate" id="generate" onclick="generatePassword()">Generate</button>
+            <button class="button-save" id="save" onclick="savePassword()">Save</button>
         </div>
     </div>
     <script src="script.js"></script>

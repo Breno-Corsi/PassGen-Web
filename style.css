@@ -38,9 +38,24 @@ body {
   background-color: #000;
   border-radius: 0.2vw;
 }
-
 .textbox:first-of-type {
   margin-top: 3vh;
+}
+.textbox input {
+  align-self: center;
+  text-align: start;
+  justify-content: center;
+  background: transparent;
+
+  width: 100%;
+  height: 100%;
+  font-size: 4vh;
+  border: none;
+
+  color: #ffffff;
+}
+.textbox input:input {
+  border: none;
 }
 
 .password-config {
@@ -134,7 +149,7 @@ body {
   justify-content: center;
   background: transparent;
   font-size: 4vh;
-  color: #fffb00;
+  color: #ffffff;
   margin-left: 1vw;
   width: 4vw;
   height: 2vw;
@@ -165,7 +180,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 35%;
   height: 100%;
 
-  color: #fffb00;
+  color: #ffffff;
   text-align: center;
   font-size: 4vh;
   border: 0.1vw solid #fffb00;
@@ -181,7 +196,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 35%;
   height: 100%;
 
-  color: #fffb00;
+  color: #ffffff;
   text-align: center;
   font-size: 4vh;
   border: 0.1vw solid #fffb00;
