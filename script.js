@@ -3,22 +3,39 @@ letters.addEventListener("click", addLetters);
 numbers.addEventListener("click", addNumbers);
 symbols.addEventListener("click", addSymbols);
 
+var passwordCharacters = "";
+let charLETTERS = true;
+let charLetters = true;
+let charNumbers = true;
+let charSymbols = true;
+
 function addLETTERS() {
-    console.log("LETTERS");
+    charLETTERS = !charLETTERS;
+    console.log(charLETTERS);
 }
 function addLetters() {
-    console.log("letters");
+    charLetters = !charLetters;
+    console.log(charLetters);
 }
 function addNumbers() {
-    console.log("numbers");
+    charNumbers = !charNumbers;
+    console.log(charNumbers);
 }
 function addSymbols() {
-    console.log("symbols");
+    charSymbols = !charSymbols;
+    console.log(charSymbols);
 }
 
 function generatePassword() {
     console.log("Password Generated");
+    
+    //passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
+    //passwordCharacters += "1234567890";
+    //passwordCharacters += "!@#$%^&*";
+    //console.log(passwordCharacters);
 }
+
 function savePassword() {
     console.log("Password Saved");
     let website = document.getElementById("website").value;
