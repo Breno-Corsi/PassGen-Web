@@ -1,39 +1,72 @@
-LETTERS.addEventListener("click", addLETTERS);
-letters.addEventListener("click", addLetters);
-numbers.addEventListener("click", addNumbers);
-symbols.addEventListener("click", addSymbols);
+upperCase.addEventListener("click", addUpper);
+lowerCase.addEventListener("click", addLower);
+number.addEventListener("click", addNumbers);
+symbol.addEventListener("click", addSymbols);
 
 var passwordCharacters = "";
-let charLETTERS = true;
-let charLetters = true;
-let charNumbers = true;
-let charSymbols = true;
+let charUpper = true;
+let charLower = true;
+let charNumber = true;
+let charSymbol = true;
 
-function addLETTERS() {
-    charLETTERS = !charLETTERS;
-    console.log(charLETTERS);
+function addUpper() {
+    charUpper = !charUpper;
+    console.log(charUpper);
 }
-function addLetters() {
-    charLetters = !charLetters;
-    console.log(charLetters);
+function addLower() {
+    charLower = !charLower;
+    console.log(charLower);
 }
 function addNumbers() {
-    charNumbers = !charNumbers;
-    console.log(charNumbers);
+    charNumber = !charNumber;
+    console.log(charNumber);
 }
 function addSymbols() {
-    charSymbols = !charSymbols;
-    console.log(charSymbols);
+    charSymbol = !charSymbol;
+    console.log(charSymbol);
+}
+
+function getPasswordCharacters() {
+    passwordCharacters = "";
+    if (charUpper == true) {
+        passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    } else {
+        passwordCharacters = passwordCharacters.replace("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "");
+    }
+    if (charLower == true) {
+        passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
+    } else {
+        passwordCharacters = passwordCharacters.replace("abcdefghijklmnopqrstuvwxyz", "");
+    }
+    if (charNumber == true) {
+        passwordCharacters += "1234567890";
+    } else {
+        passwordCharacters = passwordCharacters.replace("1234567890", "");
+    }
+    if (charSymbol == true) {
+        passwordCharacters += "!@#$%^&*";
+    } else {
+        passwordCharacters = passwordCharacters.replace("!@#$%^&*", "");
+    }
+    console.log(passwordCharacters);
 }
 
 function generatePassword() {
-    console.log("Password Generated");
-    
-    //passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
-    //passwordCharacters += "1234567890";
-    //passwordCharacters += "!@#$%^&*";
-    //console.log(passwordCharacters);
+    getPasswordCharacters();
+    let module = generateInt() % passwordCharacters.length;
+    console.log(module);
+}
+
+function generateInt() {
+    let x = 0;
+    while (x < 100) {
+        let array = new Uint16Array(1);
+        self.crypto.getRandomValues(array);
+        for (i of array) {
+            x = i;
+        }
+    }
+    return x;
 }
 
 function savePassword() {
@@ -42,9 +75,4 @@ function savePassword() {
     let username = document.getElementById("username").value;
     let passwordLength = document.getElementById("passwordLength").value;
     let password = document.getElementById("password").value;
-
-    console.log(website);
-    console.log(username);
-    console.log(passwordLength);
-    console.log(password);
 }
