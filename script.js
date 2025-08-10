@@ -52,9 +52,17 @@ function getPasswordCharacters() {
 }
 
 function generatePassword() {
-    getPasswordCharacters();
-    let module = generateInt() % passwordCharacters.length;
-    console.log(module);
+    password = "";
+    getPasswordCharacters();   
+    let passwordLength = document.getElementById("passwordLength").value;
+    while (passwordLength !== 0) {
+        let module = generateInt() % passwordCharacters.length;
+        let a = passwordCharacters.slice(module-1, module);
+        passwordLength--;
+        password += a;
+        console.log(a);
+    }
+    console.log(password);
 }
 
 function generateInt() {
@@ -73,6 +81,5 @@ function savePassword() {
     console.log("Password Saved");
     let website = document.getElementById("website").value;
     let username = document.getElementById("username").value;
-    let passwordLength = document.getElementById("passwordLength").value;
     let password = document.getElementById("password").value;
 }
