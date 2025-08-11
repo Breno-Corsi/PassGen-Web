@@ -3,7 +3,7 @@ lowerCase.addEventListener("click", addLower);
 number.addEventListener("click", addNumbers);
 symbol.addEventListener("click", addSymbols);
 
-var passwordCharacters = "";
+let passwordCharacters = "";
 let charUpper = true;
 let charLower = true;
 let charNumber = true;
@@ -53,7 +53,7 @@ function getPasswordCharacters() {
 }
 
 function generatePassword() {
-    password = "";
+    let password = "";
     getPasswordCharacters();   
     let passwordLength = document.getElementById("passwordLength").value;
     while (passwordLength !== 0) {
@@ -69,7 +69,7 @@ function generatePassword() {
 function generateInt() {
     let x = 0;
     while (x < 100) {
-        let array = new Uint16Array(1);
+        let array = new Uint8Array(1);
         self.crypto.getRandomValues(array);
         for (i of array) {
             x = i;
