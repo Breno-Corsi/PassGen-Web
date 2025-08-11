@@ -48,6 +48,7 @@ function getPasswordCharacters() {
     } else {
         passwordCharacters = passwordCharacters.replace("!@#$%^&*", "");
     }
+    passwordCharacters = passwordCharacters.split('').sort(function(){return 0.5-Math.random()}).join('');
     console.log(passwordCharacters);
 }
 
