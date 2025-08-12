@@ -98,4 +98,14 @@ function savePassword() {
     let website = document.getElementById("website").value;
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
+
+    if (website == "") {
+        alert("Please fill website field!");
+        return false;
+    }
+    if (username == "") {
+        alert("Please fill username field!");
+        return false;
+    }
+    
 }
