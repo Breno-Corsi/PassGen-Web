@@ -9,6 +9,8 @@ let charLower = true;
 let charNumber = true;
 let charSymbol = true;
 let passwordBox = document.getElementById("password");
+let showPassword = true;
+let password = "";
 
 function addUpper() {
     charUpper = !charUpper;
@@ -43,7 +45,7 @@ function switchCheckbox(varName, textInput) {
 
 function generatePassword() {
     getPasswordCharacters();
-    let password = "";
+    password = "";
     let passwordLength = getPasswordLength();
     if (passwordLength == false) {
         return false;
@@ -54,8 +56,12 @@ function generatePassword() {
         password += a;
         passwordLength--;
     }
-    console.log(password);
-    passwordBox.value = password;
+    showPasswordText();
+}
+
+function getPasswordText() {
+    e = document.getElementById("password").value;
+    return e;
 }
 
 function getPasswordLength() {
@@ -93,19 +99,38 @@ function generateInt() {
     return x;
 }
 
+function toggleShowPassword() {
+    if (getPasswordText() != "*".repeat(getPasswordText().length)) {
+        password = getPasswordText();
+    }
+    showPassword = !showPassword;
+    showPasswordText();
+}
+
+function showPasswordText() {
+    if (showPassword == true) {
+        passwordBox.value = password;
+    } else {
+        hiddenPassword = "*".repeat(getPasswordText().length);
+        if (getPasswordText() == hiddenPassword) {
+            hiddenPassword = "*".repeat(password.length);
+        }
+        passwordBox.value = hiddenPassword;
+    }
+}
+
+function copyPassword() {
+    console.log("Password copied to clipboard!");
+}
+
 function savePassword() {
     console.log("Password Saved");
     let website = document.getElementById("website").value;
     let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    password = document.getElementById("password").value;
 
-    if (website == "") {
-        alert("Please fill website field!");
+    if (website == "" || username == "") {
+        alert("Please fill website and username field!");
         return false;
     }
-    if (username == "") {
-        alert("Please fill username field!");
-        return false;
-    }
-    
 }
