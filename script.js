@@ -9,7 +9,7 @@ let charLower = true;
 let charNumber = true;
 let charSymbol = true;
 let passwordBox = document.getElementById("password");
-let showPassword = true;
+let showPassword = false;
 let password = "";
 
 function addUpper() {
@@ -120,7 +120,7 @@ function showPasswordText() {
 }
 
 function copyPassword() {
-    console.log("Password copied to clipboard!");
+    navigator.clipboard.writeText(password);
 }
 
 function savePassword() {
