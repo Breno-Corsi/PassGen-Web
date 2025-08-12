@@ -8,6 +8,7 @@ let charUpper = true;
 let charLower = true;
 let charNumber = true;
 let charSymbol = true;
+let passwordBox = document.getElementById("password");
 
 function addUpper() {
     charUpper = !charUpper;
@@ -54,6 +55,7 @@ function generatePassword() {
         passwordLength--;
     }
     console.log(password);
+    passwordBox.value = password;
 }
 
 function getPasswordLength() {
