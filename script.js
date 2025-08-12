@@ -11,59 +11,72 @@ let charSymbol = true;
 
 function addUpper() {
     charUpper = !charUpper;
-    console.log(charUpper);
 }
 function addLower() {
     charLower = !charLower;
-    console.log(charLower);
 }
 function addNumbers() {
     charNumber = !charNumber;
-    console.log(charNumber);
 }
 function addSymbols() {
     charSymbol = !charSymbol;
-    console.log(charSymbol);
 }
 
 function getPasswordCharacters() {
     passwordCharacters = "";
-    if (charUpper == true) {
-        passwordCharacters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    } else {
-        passwordCharacters = passwordCharacters.replace("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "");
-    }
-    if (charLower == true) {
-        passwordCharacters += "abcdefghijklmnopqrstuvwxyz";
-    } else {
-        passwordCharacters = passwordCharacters.replace("abcdefghijklmnopqrstuvwxyz", "");
-    }
-    if (charNumber == true) {
-        passwordCharacters += "1234567890";
-    } else {
-        passwordCharacters = passwordCharacters.replace("1234567890", "");
-    }
-    if (charSymbol == true) {
-        passwordCharacters += "!@#$%^&*";
-    } else {
-        passwordCharacters = passwordCharacters.replace("!@#$%^&*", "");
-    }
+    switchCheckbox(charUpper, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    switchCheckbox(charLower, "abcdefghijklmnopqrstuvwxyz");
+    switchCheckbox(charNumber, "1234567890");
+    switchCheckbox(charSymbol, "!@#$%^&*");
+
     passwordCharacters = passwordCharacters.split('').sort(function(){return 0.5-Math.random()}).join('');
-    console.log(passwordCharacters);
+}
+
+function switchCheckbox(varName, textInput) {
+    if (varName == true) {
+        passwordCharacters += textInput;
+    } else {
+        passwordCharacters = passwordCharacters.replace(textInput);
+    }
 }
 
 function generatePassword() {
+    getPasswordCharacters();
     let password = "";
-    getPasswordCharacters();   
-    let passwordLength = document.getElementById("passwordLength").value;
-    while (passwordLength !== 0) {
-        let module = generateInt() % passwordCharacters.length;
-        let a = passwordCharacters.slice(module-1, module);
-        passwordLength--;
+    let passwordLength = getPasswordLength();
+    if (passwordLength == false) {
+        return false;
+    }
+    while (passwordLength > 0) {
+        let module = getModule();
+        let a = passwordCharacters.slice(module -1, module);
         password += a;
-        console.log(a);
+        passwordLength--;
     }
     console.log(password);
+}
+
+function getPasswordLength() {
+    let passwordLength = document.getElementById("passwordLength").value;
+    if (passwordLength == "") {
+        alert("Please, input password length!");
+        return false;
+    } else if (passwordLength > 255) {
+        alert("Max password length is 255 characters!");
+        return false;
+    } else if (passwordLength < 1) {
+        alert("Min password length is 1 chararcters!");
+        return false;
+    }
+    return passwordLength;
+}
+
+function getModule() {
+    let i = 0;
+    while (i < 1) {
+        i = generateInt() % passwordCharacters.length;
+    }
+    return i;
 }
 
 function generateInt() {
