@@ -105,6 +105,13 @@ function toggleShowPassword() {
     }
     showPassword = !showPassword;
     showPasswordText();
+
+    const btn = document.getElementById("show-password");
+    if (btn.classList.contains("active")) {
+        btn.classList.remove("active");
+    } else {
+        btn.classList.add("active");
+    }
 }
 
 function showPasswordText() {
@@ -121,6 +128,12 @@ function showPasswordText() {
 
 function copyPassword() {
     navigator.clipboard.writeText(password);
+    const btn = document.getElementById("copy-password");
+    btn.classList.add("active");
+    setTimeout(() => {
+        btn.classList.remove("active");
+    }, 2000);
+
 }
 
 function savePassword() {

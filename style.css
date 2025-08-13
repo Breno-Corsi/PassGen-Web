@@ -3,6 +3,8 @@ body {
   font-size: 4vh;
   background: #000;
   color: #fff;
+  min-width: 700px;
+  min-height: 400px;
 }
 
 .window {
@@ -20,6 +22,8 @@ body {
   width: 60%;
   gap: 5.5vh;
   border: 0.2vh solid #fffb00;
+  min-width: 700px;
+  min-height: 400px;
 
   background-color: rgb(0, 0, 0);
   border-radius: 1vw;
@@ -206,4 +210,43 @@ input[type=number]::-webkit-outer-spin-button {
 .button-save:hover{
   background-color: #fffb00;
   color: #000;
+}
+
+.copy-password{
+  width: 4vw;
+  height: auto;
+  max-width: 100%;
+  background-color: transparent;
+  border: none;
+}
+#copy-password svg:first-child{
+  display: inline;
+}
+#copy-password svg:last-child{
+  display: none;
+}
+#copy-password.active svg:first-child{
+  display: none;
+}
+#copy-password.active svg:last-child{
+  display: inline;
+}
+
+.show-password{
+  width: 4vw;
+  height: auto;
+  background-color: transparent;
+  border: none;
+}
+#show-password svg:first-child{
+  display: inline;
+}
+#show-password svg:last-child{
+  display: none;
+}
+#show-password.active svg:first-child{
+  display: none;
+}
+#show-password.active svg:last-child{
+  display: inline;
 }
