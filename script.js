@@ -133,7 +133,6 @@ function copyPassword() {
     setTimeout(() => {
         btn.classList.remove("active");
     }, 2000);
-
 }
 
 function savePassword() {
